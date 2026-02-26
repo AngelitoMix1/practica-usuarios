@@ -1,0 +1,26 @@
+<div style="padding: 20px; font-family: sans-serif;">
+  <h2>Lista de Usuarios</h2>
+
+  <div style="margin-bottom: 20px; padding: 10px; background: #f8f9fa; border-radius: 5px;">
+    <strong>Controles de prueba: </strong>
+    <button (click)="cargarDatos(false)" style="margin-right: 10px; cursor: pointer;">
+      Cargar Datos (Éxito)
+    </button>
+    <button (click)="cargarDatos(true)" style="cursor: pointer; color: red;">
+      Simular Error (Fallo)
+    </button>
+  </div>
+
+  <p *ngIf="error" style="color: red; font-weight: bold;">{{error}}</p>
+
+  <table *ngIf="usuarios.length > 0" border="1" style="border-collapse: collapse; width: 100%; max-width: 600px;">
+    <tr style="background-color: #f2f2f2;">
+      <th style="padding: 8px; text-align: left;">Nombre</th>
+      <th style="padding: 8px; text-align: left;">Email</th>
+    </tr>
+    <tr *ngFor="let u of usuarios">
+      <td style="padding: 8px;">{{u.name}}</td>
+      <td style="padding: 8px;">{{u.email}}</td>
+    </tr>
+  </table>
+</div>
